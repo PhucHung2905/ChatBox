@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tư Vấn Sức Khỏe - Chatbot Hỗ Trợ Sức Khỏe 24/7</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main App -->
+    <div id="mainApp" class="main-app">
+        <div class="container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="logo-section">
+                    <h1>🏥 Tư Vấn Sức Khỏe</h1>
+                    <p>Trợ Lý Sức Khỏe Hàng Ngày</p>
+                    <p style="font-size: 12px; color: #666; margin-top: 5px;">💪 Ăn Tốt | Tập Tốt | Ngủ Tốt | Sống Tốt</p>
+                </div>
+                
+                <!-- User Info -->
+                <div class="user-info">
+                    <div id="userDisplay" class="user-display">
+                        <p id="userName">User</p>
+                        <p id="userRole" class="user-role">User</p>
+                    </div>
+                </div>
+                
+                <nav class="nav-menu">
+                    <button class="nav-btn active" data-section="chat">
+                        <span>💬</span> Chat Tư Vấn
+                    </button>
+                    <button class="nav-btn" data-section="search">
+                        <span>🔍</span> Tìm Kiếm
+                    </button>
+                    <button class="nav-btn" data-section="history">
+                        <span>📝</span> Lịch Sử
+                    </button>
+                    <button class="nav-btn" data-section="kb-info">
+                        <span>📚</span> Thông Tin Công Ty
+                    </button>
+                    <!-- Admin Menu -->
+                    <div id="adminMenu" class="admin-menu hidden">
+                        <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
+                        <button class="nav-btn" data-section="admin-users">
+                            <span>👥</span> Quản Lý User
+                        </button>
+                        <button class="nav-btn" data-section="admin-audit">
+                            <span>📊</span> Audit Log
+                        </button>
+                        <button class="nav-btn" data-section="admin-stats">
+                            <span>📈</span> Thống kê
+                        </button>
+                    </div>
+                    <button class="nav-btn" data-section="settings">
+                        <span>⚙️</span> Cài đặt
+                    </button>
+                </nav>
+                
+                <div class="sidebar-actions">
+                    <button id="clearChat" class="btn-secondary">🗑️ Xóa trò chuyện</button>
+                    <button id="logoutBtn" class="btn-secondary" style="background: #e74c3c;">🚪 Đăng xuất</button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Chat Section -->
+                <section id="chatSection" class="section active">
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message system">
+                                <p>👋 Xin chào! Tôi là trợ lý tư vấn sức khỏe. Hỏi tôi về dinh dưỡng, tập thể dục, giấc ngủ, stress, phòng chống bệnh - mọi điều để sống khỏe hơn! 💪</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input-area">
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    id="messageInput" 
+                                    placeholder="Hỏi về sức khỏe..." 
+                                    autocomplete="off"
+                                >
+                                <button id="sendBtn" class="btn-primary">➤</button>
+                            </div>
+                            <div class="info-text">
+                                <span id="contextInfo"></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Search Section -->
+                <section id="searchSection" class="section">
+                    <div class="search-container">
+                        <h2>🔍 Tìm kiếm Cơ sở Dữ liệu</h2>
+                        
+                        <div class="search-box">
+                            <input 
+                                type="text" 
+                                id="searchInput" 
+                                placeholder="Nhập từ khóa tìm kiếm..."
+                            >
+                            <button id="searchBtn" class="btn-primary">Tìm kiếm</button>
+                        </div>
+                        
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
+                </section>
+
+                <!-- History Section -->
+                <section id="historySection" class="section">
+                    <div class="history-container">
+                        <h2>📝 Lịch sử trò chuyện</h2>
+                        <div id="chatHistoryList" class="chat-history-list"></div>
+                    </div>
+                </section>
+
+                <!-- Knowledge Base Info Section -->
+                <section id="kbInfoSection" class="section">
+                    <div class="kb-info-container">
+                        <h2>📚 Thông tin Cơ sở Dữ liệu</h2>
+                        
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <h3>📄 Số lượng Tài liệu</h3>
+                                <p id="docCount" class="stat-number">0</p>
+                            </div>
+                            <div class="info-card">
+                                <h3>🧠 Model Nhúng</h3>
+                                <p id="embeddingModel" class="stat-text">-</p>
+                            </div>
+                            <div class="info-card">
+                                <h3>🤖 Model LLM</h3>
+                                <p id="llmModel" class="stat-text">-</p>
+                            </div>
+                            <div class="info-card">
+                                <h3>✅ Trạng thái</h3>
+                                <p id="kbStatus" class="stat-text">Chưa tải</p>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-actions">
+                            <button id="loadKB" class="btn-primary">📥 Tải Cơ sở Dữ liệu</button>
+                            <button id="reInitKB" class="btn-secondary">🔄 Tạo lại từ Tài liệu</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Admin Users Section -->
+                <section id="adminUsersSection" class="section">
+                    <div class="admin-container">
+                        <h2>👥 Quản lý User</h2>
+                        <div id="usersTable" class="users-table"></div>
+                        <div id="usersPagination" class="pagination"></div>
+                    </div>
+                </section>
+
+                <!-- Admin Audit Log Section -->
+                <section id="adminAuditSection" class="section">
+                    <div class="admin-container">
+                        <h2>📊 Audit Log</h2>
+                        <div id="auditLogsTable" class="audit-logs-table"></div>
+                        <div id="auditPagination" class="pagination"></div>
+                    </div>
+                </section>
+
+                <!-- Admin Stats Section -->
+                <section id="adminStatsSection" class="section">
+                    <div class="admin-container">
+                        <h2>📈 Thống kê Hệ thống</h2>
+                        <div id="adminStats" class="admin-stats-grid"></div>
+                        <div id="recentChatsAdmin" class="recent-chats"></div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settingsSection" class="section">
+                    <div class="settings-container">
+                        <h2>⚙️ Cài đặt</h2>
+                        
+                        <div class="settings-group">
+                            <h3>👤 Hồ sơ cá nhân</h3>
+                            <div class="setting-item">
+                                <label>Tên đầy đủ:</label>
+                                <input type="text" id="userFullName" class="input-field">
+                            </div>
+                            <button id="updateProfileBtn" class="btn-secondary">Cập nhật hồ sơ</button>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>🔐 Bảo mật</h3>
+                            <div class="setting-item">
+                                <label>Mật khẩu cũ:</label>
+                                <input type="password" id="oldPassword" class="input-field">
+                            </div>
+                            <div class="setting-item">
+                                <label>Mật khẩu mới:</label>
+                                <input type="password" id="newPassword" class="input-field">
+                            </div>
+                            <div class="setting-item">
+                                <label>Xác nhận mật khẩu mới:</label>
+                                <input type="password" id="confirmNewPassword" class="input-field">
+                            </div>
+                            <button id="changePasswordBtn" class="btn-secondary">Đổi mật khẩu</button>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>API & Kết nối</h3>
+                            <div class="setting-item">
+                                <label>Backend URL:</label>
+                                <input type="text" id="backendUrl" value="http://localhost:5000" class="input-field">
+                            </div>
+                            <button id="testConnection" class="btn-secondary">🧪 Kiểm tra Kết nối</button>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Thông tin</h3>
+                            <p>Phiên bản: 2.0.0</p>
+                            <p>Công nghệ: Flask + SQL Server + JWT + Vector Database</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Markdown & HTML Sanitizer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

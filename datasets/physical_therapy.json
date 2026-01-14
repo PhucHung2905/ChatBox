@@ -1,0 +1,369 @@
+{
+  "therapies": [
+    {
+      "id": "lower_back_pain",
+      "name": "Vật Lí Trị Liệu - Đau Lưng Dưới",
+      "vietnamese_name": "Vật Lí Trị Liệu cho Đau Lưng Dưới",
+      "description": "Vật lí trị liệu là phương pháp điều trị không dùng thuốc, sử dụng các bài tập, kỹ thuật thủ công và thiết bị để giảm đau lưng dưới, cải thiện giang lệch và tăng sức mạnh cơ lưng",
+      "causes": [
+        "Tư thế làm việc không đúng (ngồi cong lưng, gù lưng)",
+        "Nâng vật nặng sai kỹ thuật",
+        "Áp lực tâm lý và stress (căng cơ)",
+        "Yếu cơ lõm (core muscles)",
+        "Béo phì hoặc thừa cân",
+        "Các chấn thương cũ chưa hồi phục",
+        "Tuổi tác (thoái hóa đĩa đệm)",
+        "Tập luyện quá sức hoặc không đúng kỹ thuật"
+      ],
+      "symptoms": [
+        "Đau khu vực lưng dưới (phía trên mông)",
+        "Cứng cơ, hạn chế chuyển động",
+        "Cảm giác tê hoặc châm chích ở chân",
+        "Mất cân bằng hoặc khó đứng lâu",
+        "Đau tăng khi cúi người, quay người hoặc nâng vật"
+      ],
+      "diagnosis_methods": [
+        "Kiểm tra thực thể (palpation) - sờ nắn vùng đau",
+        "Kiểm tra giang lệch (flexibility test) - uốn cúi người, quay người",
+        "Kiểm tra sức mạnh cơ (muscle strength test)",
+        "Kiểm tra phản xạ và khả năng cảm giác",
+        "Hình ảnh: X-quang, MRI nếu có triệu chứng nặng",
+        "Đánh giá tư thế (postural assessment)"
+      ],
+      "treatment_phases": {
+        "phase_1": {
+          "name": "Giai Đoạn 1: Giảm Đau (Tuần 1-2)",
+          "duration": "2 tuần",
+          "goals": "Giảm inflammation, kiểm soát đau",
+          "methods": [
+            "Nghỉ ngơi 1-2 ngày (nhưng không nên nằm yên quá lâu)",
+            "Chườm nóng 15-20 phút mỗi ngày (nếu đau cơ) hoặc chườm đá (nếu viêm)",
+            "Massage nhẹ nhàng khu vực đau",
+            "Duỗi cơ đơn giản (stretching nhẹ)",
+            "Vận động nhẹ (đi bộ 10-15 phút)",
+            "Uống thuốc giảm đau theo toa (nếu cần)"
+          ]
+        },
+        "phase_2": {
+          "name": "Giai Đoạn 2: Phục Hồi Chức Năng (Tuần 3-6)",
+          "duration": "4 tuần",
+          "goals": "Tăng sức mạnh cơ, cải thiện giang lệch, phục hồi chức năng",
+          "methods": [
+            "Bài tập core tăng cường (plank, dead bug, bird dog)",
+            "Bài tập duỗi cơ (hamstring, hip flexor, glute stretches)",
+            "Bài tập tăng cường lưng (back extension, Superman)",
+            "Bài tập cân bằng (balance exercises)",
+            "Cải thiện tư thế (posture correction training)",
+            "Tập vận động từ từ (walking, swimming, cycling)"
+          ]
+        },
+        "phase_3": {
+          "name": "Giai Đoạn 3: Phòng Ngừa Tái Phát (Tuần 7+)",
+          "duration": "Dài hạn",
+          "goals": "Duy trì sức khỏe, phòng ngừa tái phát, thích ứng hoạt động hàng ngày",
+          "methods": [
+            "Tiếp tục bài tập core hàng ngày",
+            "Tập luyện thể dục đều đặn (3-4 lần/tuần)",
+            "Yoga hoặc Pilates để cải thiện giang lệch",
+            "Cải thiện tư thế làm việc",
+            "Giảm cân nếu cần",
+            "Quản lý stress"
+          ]
+        }
+      },
+      "exercises": [
+        {
+          "name": "Plank",
+          "description": "Nằm sấp, tay chống đất ở vị trí vai, giữ thẳng cơ thể từ đầu đến gót chân",
+          "duration": "30 giây - 1 phút, lặp lại 3 set",
+          "frequency": "5-6 lần/tuần",
+          "benefits": "Tăng cường cơ lõm (core) và cơ lưng dưới",
+          "precautions": "Không để hông sụp xuống, tránh cồng lưng"
+        },
+        {
+          "name": "Bird Dog",
+          "description": "Quỳ 4 gối, duỗi cùng lúc tay phải và chân trái, giữ thẳng, rồi đổi sang tay trái và chân phải",
+          "duration": "10-12 lần mỗi bên, lặp lại 3 set",
+          "frequency": "5-6 lần/tuần",
+          "benefits": "Tăng cường cân bằng, core stability, và cơ lưng",
+          "precautions": "Giữ lưng thẳng, không để hông quay"
+        },
+        {
+          "name": "Cat-Cow Stretch",
+          "description": "Quỳ 4 gối, thở hít mũi để ngực lên, lưng cong (Cow), sau đó thở ra để lưng tò vò (Cat). Luân phiên 8-10 lần",
+          "duration": "8-10 lần, 2-3 set",
+          "frequency": "Hàng ngày",
+          "benefits": "Tăng giang lệch lưng, giảm căng cơ",
+          "precautions": "Chuyển động từ từ, không quá nhanh"
+        },
+        {
+          "name": "Hamstring Stretch",
+          "description": "Nằm ngửa, kéo chân lên gần mặt bằng cách duỗi tay ôm chân hoặc dùng khăn",
+          "duration": "30 giây, lặp lại 3 lần mỗi bên",
+          "frequency": "Hàng ngày",
+          "benefits": "Duỗi cơ hamstring, giảm căng lưng dưới",
+          "precautions": "Không giật mạnh, duỗi từ từ"
+        },
+        {
+          "name": "Pelvic Tilt",
+          "description": "Nằm ngửa gối cong, co bụng nhẹ để xoay mông tới dây thắt lưng, tách mông khỏi sàn",
+          "duration": "10-15 lần, 3 set",
+          "frequency": "5-6 lần/tuần",
+          "benefits": "Tăng cường cơ bụng dưới, cải thiện tư thế",
+          "precautions": "Chuyển động nhỏ, không quá mạnh"
+        },
+        {
+          "name": "Superman Exercise",
+          "description": "Nằm sấp, cánh tay duỗi về phía trước, nhấc cánh tay, ngực và chân khỏi sàn cùng lúc, giữ 2-3 giây",
+          "duration": "10-12 lần, 3 set",
+          "frequency": "4-5 lần/tuần",
+          "benefits": "Tăng cường cơ lưng cao, giúp chống lại gù lưng",
+          "precautions": "Không quá cao, tránh co họng"
+        },
+        {
+          "name": "Quadruped Hip Extension",
+          "description": "Quỳ 4 gối, duỗi chân lên phía sau, giữ 2-3 giây, rồi hạ xuống. Lặp lại cùng bên, sau đó đổi bên",
+          "duration": "12-15 lần mỗi bên, 2-3 set",
+          "frequency": "5-6 lần/tuần",
+          "benefits": "Tăng cường cơ mông, tăng sức mạnh chân",
+          "precautions": "Giữ lưng thẳng, không để hông quay"
+        }
+      ],
+      "posture_tips": [
+        "Ngồi với lưng dựa vào ghế, vai thõng nhẹ, cánh tay hình chữ L",
+        "Màn hình máy tính ngang mắt, bàn phím ở độ cao khuỷu tay",
+        "Đứng thẳng vai, hông thẳng, cân bằng trọng lượng trên cả hai chân",
+        "Nâng vật: gập gối, giữ vật gần người, lưng thẳng",
+        "Tránh ngồi cong lưng hoặc ngả vai",
+        "Thay đổi tư thế mỗi 30 phút"
+      ],
+      "precautions": [
+        "Nếu đau tăng hoặc có tê chân, dừng bài tập và gặp bác sĩ",
+        "Không tự ý bắt đầu bài tập nặng nếu chưa hổ trợ đủ",
+        "Không tập luyện quá sức, tăng cường từ từ",
+        "Nếu cơn đau kéo dài quá 6 tuần, cần tái khám"
+      ],
+      "expected_outcomes": [
+        "Giảm đau trong 2-4 tuần",
+        "Cải thiện giang lệch trong 4-6 tuần",
+        "Phục hồi hoàn toàn trong 8-12 tuần",
+        "Giảm nguy cơ tái phát bằng cách duy trì bài tập"
+      ]
+    },
+    {
+      "id": "neck_shoulder_pain",
+      "name": "Vật Lí Trị Liệu - Đau Cổ và Vai",
+      "vietnamese_name": "Vật Lí Trị Liệu cho Đau Cổ và Vai",
+      "description": "Vật lí trị liệu cho đau cổ và vai giúp giảm căng cơ, cải thiện giang lệch cô cổ, tăng cường cơ vai và cải thiện tư thế",
+      "causes": [
+        "Tư thế không tốt khi làm việc văn phòng",
+        "Căng thẳng và stress",
+        "Ngủ với gối không phù hợp",
+        "Chấn thương cổ hoặc vai",
+        "Tuổi tác (thoái hóa cột sống cổ)",
+        "Sử dụng điện thoại thường xuyên (text neck)",
+        "Cơ vai yếu"
+      ],
+      "symptoms": [
+        "Đau cơ cổ và vai",
+        "Cứng cơ cổ, hạn chế quay đầu hoặc cúi",
+        "Đau khi nâng tay cao",
+        "Cảm giác tê ở cánh tay hoặc ngón tay",
+        "Đau đầu căng"
+      ],
+      "exercises": [
+        {
+          "name": "Neck Stretches (Duỗi Cơ Cổ)",
+          "description": "Duỗi cơ cổ bằng cách cúi tai tới vai, lệch đầu về 2 bên, quay đầu từ từ",
+          "duration": "30 giây mỗi hướng, 2-3 lần",
+          "frequency": "Hàng ngày, 2-3 lần/ngày",
+          "benefits": "Tăng giang lệch cổ, giảm căng cơ",
+          "precautions": "Không giật mạnh, chuyển động từ từ"
+        },
+        {
+          "name": "Shoulder Rolls (Xoay Vai)",
+          "description": "Xoay vai từ từ, lên trước, xuống sau, 10 lần, sau đó đảo chiều",
+          "duration": "10 lần mỗi hướng, 2-3 set",
+          "frequency": "3-4 lần/ngày",
+          "benefits": "Giảm căng cơ vai, tăng giang lệch",
+          "precautions": "Chuyển động mượt mà, không giật"
+        },
+        {
+          "name": "Shoulder Blade Squeeze (Nắn Xương Lưng)",
+          "description": "Ngồi thẳng, hạ vai xuống, kéo xương lưng lại gần nhau, giữ 5 giây, rồi thả ra",
+          "duration": "12-15 lần, 3 set",
+          "frequency": "5-6 lần/tuần",
+          "benefits": "Tăng cường cơ lưng giữa, cải thiện tư thế",
+          "precautions": "Không quá mạnh, chuyển động kiểm soát"
+        },
+        {
+          "name": "Resistance Band Rows (Kéo Dây Kháng Lực)",
+          "description": "Dùng dây kháng lực, kéo tay lại gần cơ thể, co lưng, giữ 2 giây, rồi thả ra từ từ",
+          "duration": "12-15 lần, 3 set",
+          "frequency": "4-5 lần/tuần",
+          "benefits": "Tăng cường cơ lưng giữa và vai",
+          "precautions": "Sử dụng lực phù hợp, không quá nặng"
+        },
+        {
+          "name": "Chin Tucks (Co Cằm)",
+          "description": "Ngồi hoặc đứng thẳng, kéo cằm vào trong (nhưng không cúi đầu quá), giữ 5 giây, thả ra",
+          "duration": "10-15 lần, 3 set",
+          "frequency": "Hàng ngày",
+          "benefits": "Giảm text neck, cải thiện tư thế cổ",
+          "precautions": "Chuyển động nhỏ, không cúi quá mạnh"
+        }
+      ],
+      "ergonomic_tips": [
+        "Màn hình máy tính ngang mắt, cách mắt 60-70cm",
+        "Bàn phím ở độ cao khuỷu tay, cánh tay hình chữ L",
+        "Ghế có tựa lưng, hỗ trợ cộng 5-10 độ",
+        "Sử dụng gối cao 10-12cm, hỗ trợ cổ",
+        "Tránh cúi đầu quá lâu khi sử dụng điện thoại",
+        "Thay đổi tư thế mỗi 30 phút"
+      ]
+    },
+    {
+      "id": "knee_pain",
+      "name": "Vật Lí Trị Liệu - Đau Đầu Gối",
+      "vietnamese_name": "Vật Lí Trị Liệu cho Đau Đầu Gối",
+      "description": "Vật lí trị liệu cho đau đầu gối tập trung vào giảm đau, tăng cường cơ đùi và mông, cải thiện giang lệch, và phục hồi chức năng cáng đi",
+      "causes": [
+        "Chấn thương (vơi gối, tổn thương dây chằng)",
+        "Quá tải từ tập luyện",
+        "Yếu cơ đùi (quadriceps) hoặc mông",
+        "Tư thế cáng đi không đúng",
+        "Căn chỉnh không đúng (malalignment)",
+        "Béo phì hoặc thừa cân",
+        "Thoái hóa khớp gối (osteoarthritis)"
+      ],
+      "symptoms": [
+        "Đau ở phía trước gối hoặc quanh đầu gối",
+        "Sưng phù hoặc cứng cơ",
+        "Khó cáng đi hoặc gập gối",
+        "Cảm giác gối yếu hoặc không ổn định",
+        "Tiếng cứt cứt khi cáng đi"
+      ],
+      "exercises": [
+        {
+          "name": "Quad Sets (Co Cơ Đùi)",
+          "description": "Nằm ngửa, duỗi chân, co cơ đùi trước 5 giây, rồi thả ra",
+          "duration": "15 lần, 3 set",
+          "frequency": "Hàng ngày",
+          "benefits": "Tăng cường cơ đùi, ổn định gối",
+          "precautions": "Giữ gối thẳng, không cúi"
+        },
+        {
+          "name": "Straight Leg Raise (Nâng Chân Thẳng)",
+          "description": "Nằm ngửa, chân cong, nâng chân thẳng lên cao bằng cơ đùi, giữ 2-3 giây, hạ xuống",
+          "duration": "12-15 lần mỗi chân, 3 set",
+          "frequency": "5-6 lần/tuần",
+          "benefits": "Tăng cường cơ đùi trước",
+          "precautions": "Không có cơn đau, dừng nếu có khó chịu"
+        },
+        {
+          "name": "Glute Bridges (Nâng Hông)",
+          "description": "Nằm ngửa gối cong, chân cách nhau ngang vai, nâng hông lên cao, co cơ mông, giữ 2 giây, hạ xuống",
+          "duration": "12-15 lần, 3 set",
+          "frequency": "5-6 lần/tuần",
+          "benefits": "Tăng cường cơ mông, ổn định hông",
+          "precautions": "Không đẩy mạnh, chuyển động kiểm soát"
+        },
+        {
+          "name": "Step-Ups (Bước Lên Bậc)",
+          "description": "Bước lên bậc (độ cao 20-30cm), nhấn trên cơ đùi phía trước, hạ xuống từ từ, lặp lại",
+          "duration": "10-12 lần mỗi chân, 3 set",
+          "frequency": "4-5 lần/tuần",
+          "benefits": "Tăng cường cơ đùi và mông trong hoạt động chức năng",
+          "precautions": "Sử dụng bậc thấp, không co quá sâu"
+        },
+        {
+          "name": "Hamstring Curls (Co Chân Sau)",
+          "description": "Đứng, cúi chân để kéo gót tới mông, giữ 2 giây, hạ xuống. Có thể dùng dây kháng lực",
+          "duration": "12-15 lần mỗi chân, 3 set",
+          "frequency": "4-5 lần/tuần",
+          "benefits": "Tăng cường cơ hamstring, cân bằng cơ đùi",
+          "precautions": "Giữ hông thẳng, không nâng quá cao"
+        }
+      ],
+      "prevention": [
+        "Tăng cường cơ đùi và mông thường xuyên",
+        "Duỗi cơ đùi, hamstring, mông hàng ngày",
+        "Giảm cân nếu cần thiết",
+        "Chọn giày phù hợp có đệm tốt",
+        "Tránh hoạt động có tác động cao (chạy trên mặt cứng)",
+        "Tăng cường tập luyện từ từ, không quá sức"
+      ]
+    },
+    {
+      "id": "ankle_sprain",
+      "name": "Vật Lí Trị Liệu - Bong Gân Cổ Chân",
+      "vietnamese_name": "Vật Lí Trị Liệu cho Bong Gân Cổ Chân",
+      "description": "Vật lí trị liệu cho bong gân cổ chân (ankle sprain) giúp giảm sưng, phục hồi thần kinh cảm nhận, tăng sức mạnh, và phục hồi cân bằng",
+      "severity_grades": {
+        "grade_1": "Bong nhẹ: Kéo dây chằng, sưng nhẹ, cáng đi được",
+        "grade_2": "Bong vừa: Kéo/xé dây chằng một phần, sưng vừa, cáng đi khó khăn",
+        "grade_3": "Bong nặng: Xé dây chằng hoàn toàn, sưng nặng, không cáng được"
+      },
+      "acute_phase": {
+        "name": "Giai Đoạn Cấp Tính (0-2 tuần)",
+        "protocol": "RICE Protocol (Rest, Ice, Compression, Elevation)",
+        "actions": [
+          "Nghỉ ngơi: Tránh cáng đi, nằm yên hoặc ngồi cao chân",
+          "Chườm đá: 15-20 phút, mỗi 3-4 giờ, ngày đầu 48 giờ",
+          "Nén chặt: Cuộn băng co giãn hoặc áo nén để giảm sưng",
+          "Nâng chân: Nâng chân lên cao hơn tim khi ngồi/nằm",
+          "Thuốc giảm đau: Ibuprofen hoặc Naproxen nếu cần"
+        ]
+      },
+      "recovery_exercises": [
+        {
+          "name": "Ankle Pumps (Thực Hiện Động Tác Chân)",
+          "description": "Thực hiện ngay từ tuần đầu: Bơi chân lên xuống từ từ để tránh cứng cơ",
+          "timing": "Bắt đầu từ ngày 1-2 sau chấn thương",
+          "frequency": "Hàng ngày, 3-4 lần"
+        },
+        {
+          "name": "Ankle Isometric Exercises (Tập Co Cơ Tĩnh)",
+          "description": "Co cơ quanh cổ chân mà không cáng đi (chống lại đối kháng)",
+          "week": "Tuần 2-3",
+          "frequency": "5-6 lần/tuần"
+        },
+        {
+          "name": "Range of Motion Exercises",
+          "description": "Từ từ tăng phạm vi chuyển động: gập/duỗi, bẻ ngoài/trong",
+          "week": "Tuần 2-4",
+          "frequency": "Hàng ngày"
+        },
+        {
+          "name": "Resistance Band Exercises",
+          "description": "Sử dụng dây kháng lực để tăng cường cơ xung quanh cổ chân",
+          "week": "Tuần 3-6",
+          "frequency": "5-6 lần/tuần",
+          "exercises": [
+            "Plantarflex resistance (co cơ bàn chân)",
+            "Dorsiflexion resistance (kéo bàn chân lên)",
+            "Inversion/Eversion resistance (bẻ cổ chân)"
+          ]
+        },
+        {
+          "name": "Balance and Proprioception Training",
+          "description": "Tập cân bằng để phục hồi khả năng cảm nhận vị trí và động tác",
+          "week": "Tuần 4+",
+          "exercises": [
+            "Đứng một chân trên mặt bằng",
+            "Đứng một chân trên bề mặt mềm (gối tập yoga)",
+            "Đấu sỹ bốn chân (tandem stance)",
+            "Bình thường lắc đầu sang trái/phải khi đứng một chân"
+          ]
+        }
+      ],
+      "return_to_activity": [
+        "Tuần 2-3: Cáng đi bằng nạng (crutches)",
+        "Tuần 3-4: Cáng đi bình thường nhưng từ từ",
+        "Tuần 4-6: Quay lại hoạt động hàng ngày",
+        "Tuần 6-8: Quay lại tập luyện nhẹ",
+        "Tuần 8+: Quay lại hoạt động bình thường nếu không có đau"
+      ]
+    }
+  ]
+}

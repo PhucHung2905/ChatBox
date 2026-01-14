@@ -1,0 +1,157 @@
+{
+  "health_tips": [
+    {
+      "category": "Sức Khỏe Hàng Ngày",
+      "tips": [
+        "Rửa tay bằng xà phòng ít nhất 20 giây, đặc biệt trước khi ăn và sau khi đi vệ sinh",
+        "Uống 6-8 ly nước mỗi ngày để duy trì đủ nước (kiểm tra nước tiểu: màu nhạt = nước đủ)",
+        "Ăn các bữa ăn nhỏ thường xuyên giúp duy trì năng lượng (chia 5-6 bữa)",
+        "Tập thể dục 30 phút/ngày giúp cải thiện sức khỏe toàn diện (đi bộ, yoga, bơi)",
+        "Ngủ 7-9 giờ/đêm là cần thiết cho sức khỏe (đi ngủ + thức dậy cùng giờ)",
+        "Giảm screen time, đặc biệt trước khi ngủ (tránh light xanh 1 giờ trước ngủ)",
+        "Kiểm tra cân nặng hàng tháng để phát hiện thay đổi sớm",
+        "Ghi lại các triệu chứng lạ để báo cáo cho bác sĩ",
+        "Sắp xếp thời gian để có 15 phút xã hội hóa mỗi ngày",
+        "Giãn cơ 10 phút/ngày giảm đau lưng và cứng cấp"
+      ]
+    },
+    {
+      "category": "Dinh Dưỡng",
+      "tips": [
+        "Ăn cầu vồng: rau quả đủ màu sắc (xanh=vitamin, đỏ=lycopene, cam=beta-carotene)",
+        "Chọn whole grains thay vì refined grains (cơm gạo lứt, bánh mì lúa mạch)",
+        "Bổ sung protein từ nhiều nguồn: cá, gà, trứng, đậu, hạt, sữa",
+        "Hạn chế đường (< 25g/ngày nữ, < 36g/ngày nam)",
+        "Ăn chậm, nhai kỹ giúp tiêu hóa tốt (mất 20 phút cảm thấy no)",
+        "Lập kế hoạch bữa ăn giúp ăn cân bằng + tiết kiệm thời gian",
+        "Ăn cá béo 2-3 lần/tuần cho omega-3 (cá hồi, cá ngừ, cá mòi)",
+        "Bổ sung chất xơ (30g/ngày) từ rau, trái cây, ngũ cốc nguyên hạt",
+        "Hạn chế muối (< 5g/ngày = < 1 tsp)",
+        "Ăn hạt (30g/ngày): hạnh nhân, ốc nào, hạt hướng dương",
+        "Bổ sung kali từ chuối, khoai lang, bông cải xanh giúp huyết áp",
+        "Chọn sữa chua Greek cho protein cao hơn",
+        "Tránh các thức uống đường (1 lon = 40g đường)",
+        "Nấu ăn ở nhà nhiều hơn để kiểm soát lượng muối/đường"
+      ]
+    },
+    {
+      "category": "Tập Thể Dục",
+      "tips": [
+        "Chọn hoạt động bạn yêu thích để duy trì thôi quen (đi bộ, yoga, nhảy, bơi)",
+        "Tập thể dục sáng sẽ có nhiều năng lượng hơn (6-8h sáng tốt nhất)",
+        "Warm-up 5-10 phút trước, cool-down 5-10 phút sau tập luyện",
+        "Tăng cường độ dần dần để tránh chấn thương (không nhảy vọt)",
+        "Tập thể dục với bạn bè để tăng động lực + vui vẻ",
+        "Lắng nghe cơ thể, nghỉ ngơi khi cần (không tập khi đau)",
+        "Tập sức đề kháng 2-3 ngày/tuần cách nhau 1 ngày (tạ, resistance band)",
+        "HIIT 20-30 phút: 30s mạnh + 30s phục hồi (tốt cho tim)",
+        "Yoga hoặc Pilates giúp cân bằng + linh hoạt",
+        "Đi bộ nhanh 5-6 km/h mỗi ngày (đơn giản, an toàn)",
+        "Stretch sau mỗi bữa ăn giúp kiểm soát glucose",
+        "Đơn giản hóa: dùng thang máy ít, tìm cơ hội đi bộ hàng ngày"
+      ]
+    },
+    {
+      "category": "Quản Lý Stress",
+      "tips": [
+        "Tập thiền 10-20 phút/ngày giúp giảm stress (có app Insight Timer, Calm)",
+        "Thử yoga hoặc tai chi (video YouTube miễn phí)",
+        "Hít thở sâu 4-7-8: hít 4s, giữ 7s, thở 8s (lặp 10 lần)",
+        "Dành thời gian cho sở thích yêu thích (đọc, vẽ, nấu ăn, nhạc)",
+        "Nói chuyện với bạn bè hoặc gia đình (cảm xúc cần chia sẻ)",
+        "Viết nhật ký để xử lý cảm xúc (15 phút trước ngủ)",
+        "Tắm nước ấm 15-20 phút giúp thả lỏng cơ thể",
+        "Nghe nhạc thư giãn hoặc âm thanh thiên nhiên",
+        "Hạn chế tin tức tiêu cực (kiểm tra 1-2 lần/ngày thay vì suốt ngày)",
+        "Tạo ranh giới công việc: quitting time có nghĩa là quitting",
+        "Nói từ 'không' để bảo vệ năng lượng của bạn",
+        "Hạn chế caffeine (không uống sau 14h giúp ngủ tốt hơn)"
+      ]
+    },
+    {
+      "category": "Sức Khỏe Tinh Thần",
+      "tips": [
+        "Nhận ra các dấu hiệu trầm cảm sớm: buồn bã > 2 tuần, mất hứng thú",
+        "Nhận ra lo âu: tim đập nhanh, khó tập trung, cảm thấy sợ > 6 tháng",
+        "Không ngần ngại tìm giúp đỡ chuyên nghiệp (bác sĩ tâm lý, tâm lý sư)",
+        "Duy trì các hoạt động xã hội (tránh cô lập)",
+        "Hỗ trợ những người xung quanh (giúp người khác = giúp chính mình)",
+        "Chấp nhận những gì bạn không thể thay đổi (tập stoicism)",
+        "Tập gratitude hàng ngày (3 điều tốt mỗi tối)",
+        "Tìm kiếm ý nghĩa trong cuộc sống (mục tiêu, giá trị, bài học)",
+        "Đặt ranh giới lành mạnh với người tiêu cực",
+        "Thực hiện self-compassion: đối xử tử thân như với bạn",
+        "Gọi đường dây tự tử nếu tuyệt vọng: 1800-1080 (VN)",
+        "Tìm bộ trưởng tôn giáo/tâm linh nếu cần"
+      ]
+    },
+    {
+      "category": "Phòng Chống Bệnh",
+      "tips": [
+        "Tiêm chủng đầy đủ theo lịch được khuyến cáo (BCG, DPT, cúm, HPV)",
+        "Tránh tiếp xúc gần với người bệnh (khoảng cách > 1m)",
+        "Đeo khẩu trank N95 ở nơi đông người hoặc khi người bệnh",
+        "Giữ vệ sinh cá nhân tốt (tắm hàng ngày, cắt móng, vệ sinh phụ nữ)",
+        "Khử trùng bề mặt thường xuyên (điện thoại, bàn, đóng cửa hàng ngày)",
+        "Kiểm tra sức khỏe định kỳ (1-2 năm 1 lần nếu < 40, 1 năm 1 lần nếu 40-60)",
+        "Ho/hắt vào khăn giấy hoặc khuỷu tay (không dùng tay)",
+        "Không sử dụng chung cốc, khăn tay, bàn chải đánh răng",
+        "Giặt tay trước khi chuẩn bị thức ăn",
+        "Rửa rau quả kỹ lưỡng trước khi ăn",
+        "Cách ly 5-7 ngày nếu bị cảm/cúm (tránh lây cho người khác)",
+        "Theo dõi các tư vấn sức khỏe từ cơ quan chức năng"
+      ]
+    },
+    {
+      "category": "Sức Khỏe Tim Mạch",
+      "tips": [
+        "Kiểm tra huyết áp 1 năm 1 lần (mục tiêu < 120/80 mmHg)",
+        "Kiểm tra cholesterol 1 năm 1 lần (LDL < 100, HDL > 40 nam)",
+        "Giảm muối < 5g/ngày giúp huyết áp (tránh thực phẩm mặn)",
+        "Ăn ít chất béo bão hòa (butter, thịt mỡ, dừa)",
+        "Tăng chất xơ từ rau quả, ngũ cốc nguyên hạt",
+        "Tập thể dục 150 phút/tuần giúp tim khỏe",
+        "Không hút thuốc (1 điếu = hại tim)",
+        "Hạn chế rượu (≤ 1 ly/ngày nữ, ≤ 2 ly/ngày nam)",
+        "Ăn cá béo 2-3 lần/tuần cho omega-3",
+        "Giảm cân nếu thừa cân (BMI 18.5-24.9 là lý tưởng)",
+        "Quản lý stress giúp tim (stress = huyết áp cao)",
+        "Ngủ đủ 7-9 giờ giúp tim phục hồi"
+      ]
+    },
+    {
+      "category": "Sức Khỏe Xương & Khớp",
+      "tips": [
+        "Bổ sung Calcium 1000-1200 mg/ngày (sữa, sữa chua, cá có xương)",
+        "Bổ sung Vitamin D 600-800 IU/ngày (mặt trời, cá béo, sữa fortified)",
+        "Tập weight-bearing exercises: đi bộ, chạy, aerobics (30 phút/ngày)",
+        "Tập sức đề kháng 2-3 ngày/tuần giúp xương chắc",
+        "Hạn chế caffeine (không > 3 ly cà phê/ngày)",
+        "Hạn chế muối < 5g/ngày",
+        "Không hút thuốc (hòa hợp loãng xương)",
+        "Hạn chế rượu (> 1-2 ly/ngày hại xương)",
+        "Tránh ngã ở người cao tuổi (thiết kế nhà an toàn, sáng sủa)",
+        "Kiểm tra mật độ xương DEXA scan > 50 tuổi",
+        "Yoga + Pilates giúp cân bằng + ngã",
+        "Bổ sung Magnesium (hạt, rau lá xanh) giúp hấp thụ Calcium"
+      ]
+    },
+    {
+      "category": "Sức Khỏe Ăn Uống",
+      "tips": [
+        "Ăn 5 phần rau quả/ngày (1 phần = nắm tay)",
+        "Chọn rau lá xanh (cải, rau muống, bó xôi): vitamin, mineral, chất xơ",
+        "Chọn rau cam/đỏ (cà chua, ớt): lycopene, vitamin C",
+        "Ăn nguyên quả không ăn nước (fiber bị mất khi xay)",
+        "Protein đủ 50-60g/ngày (cá, gà, trứng, sữa, đậu, hạt)",
+        "Chọn dầu oliu extra virgin (1-2 thìa/ngày)",
+        "Bỏ qua chế độ ăn kiêng cắt nghĩa ngặt (không bền)",
+        "Dùng bát nhỏ hơn giúp ăn ít hơn",
+        "Ăn tối nhẹ hơn sáng (phân bổ calo hợp lý)",
+        "Đọc nhãn thực phẩm: đường < 5g/100g, muối < 1.2g/100g",
+        "Thay thế: nước ngọt → nước lọc, bánh mì trắng → lúa mạch",
+        "Nấu ăn từ nguyên liệu tươi (đơn giản, lành mạnh)"
+      ]
+    }
+  ]
+}

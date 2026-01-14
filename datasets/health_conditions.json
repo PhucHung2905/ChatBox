@@ -1,0 +1,363 @@
+{
+  "conditions": [
+    {
+      "id": "flu",
+      "name": "Cảm Cúm",
+      "vietnamese_name": "Cảm Cúm (Influenza)",
+      "description": "Bệnh cảm cúm là bệnh nhiễm trùng đường hô hấp cấp tính do virus gây ra, lây truyền nhanh chóng trong cộng đồng",
+      "symptoms": ["Sốt cao (38-40°C)", "Ho khô hoặc có đờm", "Đau cơ toàn thân", "Mệt mỏi nặng", "Đau đầu", "Chảy nước mũi", "Đau cổ họng", "Ớn lạnh"],
+      "severity": "Trung bình đến nặng",
+      "onset": "Toàn bộ triệu chứng xuất hiện trong 3-5 ngày",
+      "causes": "Lây truyền từ người sang người qua giọt bắn khi ho/hắt hơi hoặc tiếp xúc với các bề mặt bẩn",
+      "prevention": [
+        "Tiêm vaccine cúm hàng năm (tốt nhất tháng 10-11)",
+        "Rửa tay bằng xà phòng 20 giây, đặc biệt trước ăn",
+        "Tránh tiếp xúc gần với người bệnh",
+        "Đeo khẩu trang ở nơi đông người",
+        "Tăng cường miễn dịch (ăn tốt, ngủ đủ, tập thể dục)",
+        "Dùng gel rửa tay nếu không có nước"
+      ],
+      "treatment": [
+        "Nghỉ ngơi tối thiểu 3-5 ngày",
+        "Uống đủ nước (2-3 lít/ngày)",
+        "Dùng thuốc hạ sốt (Paracetamol 500mg, mỗi 6 giờ)",
+        "Giữ ấm cơ thể",
+        "Súc họng bằng nước muối ấm 3-4 lần/ngày",
+        "Dùng honey để giảm ho (không dùng cho trẻ < 1 tuổi)",
+        "Thuốc Oseltamivir (Tamiflu) trong 48 giờ đầu nếu trường hợp nặng"
+      ],
+      "duration": "7-14 ngày (ho có thể kéo dài 3-4 tuần)",
+      "when_to_see_doctor": [
+        "Sốt cao trên 39°C kéo dài quá 3 ngày",
+        "Khó thở, chest pain",
+        "Người cao tuổi, trẻ nhỏ, bệnh nhân mạn tính",
+        "Ho kèm máu",
+        "Tình trạng xấu đi sau khi khỏi"
+      ]
+    },
+    {
+      "id": "common_cold",
+      "name": "Cảm Lạnh",
+      "description": "Bệnh cảm lạnh là bệnh do virus gây ra (rhinovirus, coronavirus), nhẹ hơn cảm cúm, thường không sốt hoặc sốt nhẹ",
+      "symptoms": ["Sổi mũi", "Ho nhẹ không đờm", "Hắt hơi liên tục", "Đau cổ họng nhẹ", "Mệt mỏi nhẹ", "Đầu hơi nặng", "Mắt ngứa"],
+      "severity": "Nhẹ",
+      "onset": "Triệu chứng phát triển dần trong 1-2 ngày",
+      "causes": "Lây truyền qua giọt bắn hoặc tiếp xúc với virus trên bề mặt (khoảng 30 phút trên tay, lâu hơn trên thép/nhựa)",
+      "prevention": [
+        "Rửa tay thường xuyên (20 giây)",
+        "Tránh chạm mặt mũi mắt",
+        "Tránh tiếp xúc gần với người bệnh",
+        "Giữ vệ sinh cá nhân tốt",
+        "Tăng cường miễn dịch (Vitamin C, D, Zinc)",
+        "Tránh stress, đảm bảo ngủ đủ"
+      ],
+      "treatment": [
+        "Uống nước ấm đều đặn (mật ong chanh, nước gừng)",
+        "Ngủ đủ giấc (8-10 giờ/ngày)",
+        "Dùng thuốc giảm triệu chứng (antihistamine nếu cần)",
+        "Xông hơi mũi bằng nước ấm muối",
+        "Uống nước quả cam, kiwi (Vitamin C)",
+        "Nếu sốt dùng Paracetamol theo liều lượng"
+      ],
+      "duration": "3-7 ngày (sổi mũi có thể kéo dài 10 ngày)",
+      "complications": "Hiếm gặp, nhưng có thể dẫn đến viêm tai giữa, viêm xoang ở những người có vấn đề"
+    },
+    {
+      "id": "diabetes",
+      "name": "Bệnh Tiểu Đường",
+      "description": "Bệnh tiểu đường là tình trạng lượng đường (glucose) trong máu cao do thiếu insulin hoặc cơ thể kháng insulin, dẫn đến biến chứng tim mạch, thần kinh, thận",
+      "types": [
+        "Tiểu đường typ 1 - Tự miễn, cần insulin (5-10% bệnh nhân)",
+        "Tiểu đường typ 2 - Kháng insulin, liên quan lối sống (90% bệnh nhân)",
+        "Tiểu đường thai kỳ - Phát hiện khi mang thai, thường hết sau sinh"
+      ],
+      "symptoms": ["Khát nước quá mức", "Tiểu nhiều lần (>8 lần/ngày)", "Mệt mỏi liên tục", "Mờ mắt, khó nhìn", "Vết thương lâu lành", "Tê đầu ngón tay/chân", "Chậm tăng cân hoặc giảm cân"],
+      "blood_glucose_levels": {
+        "normal": "< 100 mg/dL (khi nhịn)",
+        "prediabetes": "100-125 mg/dL (khi nhịn)",
+        "diabetes": "> 125 mg/dL (khi nhịn) hoặc > 200 mg/dL (bất kỳ lúc nào)"
+      },
+      "risk_factors": [
+        "Thừa cân BMI > 25 hoặc béo phì BMI > 30",
+        "Ít hoạt động thể chất",
+        "Chế độ ăn kém lành mạnh (nhiều đường, chất béo, ít chất xơ)",
+        "Tuổi > 45 (typ 2) hoặc bất kỳ tuổi (typ 1)",
+        "Tiền sử gia đình (bố/mẹ/anh/chị bị tiểu đường)",
+        "Tiểu đường thai kỳ trong lần mang thai trước",
+        "Huyết áp cao (> 140/90 mmHg)",
+        "Cholesterol cao"
+      ],
+      "prevention": [
+        "Giữ cân nặng lý tưởng (BMI 18.5-24.9)",
+        "Tập thể dục 150 phút vừa phải/tuần (đi bộ nhanh, bơi, đạp xe)",
+        "Ăn cân bằng: rau quả 50%, protein 25%, carbs 25%",
+        "Giảm đường tinh luyện (nước ngọt, bánh kẹo) còn < 25g/ngày",
+        "Tăng chất xơ (25-30g/ngày từ rau quả, whole grains)",
+        "Hạn chế muối < 5g/ngày",
+        "Kiểm tra glucose định kỳ (> 45 tuổi 1 lần/năm)",
+        "Quản lý stress (yoga, thiền)",
+        "Bỏ hút thuốc, hạn chế rượu"
+      ],
+      "management": [
+        "Kiểm soát glucose (đo 1-2 lần/ngày)",
+        "Dùng insulin hoặc Metformin theo hướng dẫn bác sĩ",
+        "Tập thể dục đều đặn 150 phút/tuần",
+        "Ăn uống lành mạnh, tính toán carbs",
+        "Kiểm tra sức khỏe 4 tuần 1 lần",
+        "Kiểm tra mắt 1 năm 1 lần",
+        "Kiểm tra chân và thần kinh định kỳ"
+      ],
+      "complications": [
+        "Bệnh tim mạch (nhồi máu, đột quỵ) - nguyên nhân tử vong hàng đầu",
+        "Suy thận (cần chạy thận nhân tạo)",
+        "Mất thị lực hoặc mù (retinopathy)",
+        "Tê chân, mất cảm giác (neuropathy) → nguy cơ loét chân",
+        "Cạn kiệt (ketoacidosis) - khẩn cấp"
+      ]
+    },
+    {
+      "id": "high_blood_pressure",
+      "name": "Tăng Huyết Áp",
+      "description": "Tăng huyết áp khi huyết áp ≥ 130/80 mmHg, là nguyên nhân chính gây bệnh tim mạch, đột quỵ, suy thận",
+      "blood_pressure_categories": {
+        "normal": "< 120/80 mmHg",
+        "elevated": "120-129 và < 80 mmHg",
+        "stage1": "130-139 hoặc 80-89 mmHg",
+        "stage2": "≥ 140/90 mmHg",
+        "hypertensive_crisis": "> 180/120 mmHg - cần cấp cứu ngay"
+      },
+      "symptoms": ["Thường không có triệu chứng", "Đau đầu", "Chóng mặt", "Nóng mặt", "Nhồi máu, khó thở (nặng)"],
+      "risk_factors": [
+        "Tuổi > 60",
+        "Tiền sử gia đình",
+        "Thừa cân BMI > 25",
+        "Ít hoạt động thể chất",
+        "Ăn nhiều muối (> 5g/ngày)",
+        "Uống rượu quá mức",
+        "Stress mạn tính",
+        "Ngủ không đủ",
+        "Tiểu đường, cholesterol cao"
+      ],
+      "prevention": [
+        "Hạn chế muối < 5g/ngày",
+        "Ăn nhiều rau quả (6-8 phần/ngày)",
+        "Ăn cá 2-3 lần/tuần (omega-3)",
+        "Tập thể dục 150 phút/tuần",
+        "Giữ cân nặng lý tưởng (BMI 18.5-24.9)",
+        "Hạn chế caffeine",
+        "Bỏ hút thuốc",
+        "Quản lý stress (yoga, thiền)",
+        "Ngủ 7-9 giờ/đêm",
+        "Hạn chế rượu (≤ 1 ly/ngày cho nữ, ≤ 2 ly/ngày cho nam)"
+      ],
+      "treatment": [
+        "Dùng thuốc hạ huyết áp (ACE inhibitor, ARB, Beta-blocker, Calcium channel blocker)",
+        "Thực hiện thay đổi lối sống",
+        "Kiểm tra huyết áp 1 tháng 1 lần",
+        "Kiểm tra tim, thận định kỳ"
+      ]
+    },
+    {
+      "id": "high_cholesterol",
+      "name": "Cholesterol Cao",
+      "description": "Cholesterol cao trong máu là nguyên nhân chính gây nhồi máu, đột quỵ, bệnh động mạch không ổn định",
+      "types": {
+        "ldl": "LDL (cholesterol xấu) - nên < 100 mg/dL",
+        "hdl": "HDL (cholesterol tốt) - nên > 40 mg/dL (nam), > 50 mg/dL (nữ)",
+        "triglycerides": "Triglycerides - nên < 150 mg/dL",
+        "total": "Cholesterol tổng - nên < 200 mg/dL"
+      },
+      "risk_factors": [
+        "Tuổi > 50 (nam) hoặc > 60 (nữ)",
+        "Tiền sử gia đình",
+        "Béo phì",
+        "Chế độ ăn cao chất béo bão hòa",
+        "Ít hoạt động thể chất",
+        "Hút thuốc",
+        "Tiểu đường",
+        "Tăng huyết áp"
+      ],
+      "prevention": [
+        "Ăn ít chất béo bão hòa (< 10% tổng calo)",
+        "Ăn ít chất béo trans (bánh kẹo, thực phẩm chiên)",
+        "Tăng chất xơ hòa tan (yến mạch, đậu)",
+        "Ăn cá 2-3 lần/tuần (omega-3)",
+        "Ăn hạt, nut, dầu oliu",
+        "Tập thể dục 150 phút/tuần",
+        "Giữ cân nặng lý tưởng",
+        "Bỏ hút thuốc",
+        "Hạn chế rượu"
+      ],
+      "treatment": [
+        "Dùng Statin (Atorvastatin, Simvastatin) nếu cần",
+        "Thay đổi lối sống",
+        "Kiểm tra cholesterol 4-6 tuần 1 lần"
+      ]
+    },
+    {
+      "id": "depression",
+      "name": "Trầm Cảm",
+      "description": "Trầm cảm là bệnh tâm lý kéo dài (≥ 2 tuần) với tâm trạng buồn bã, mất hứng thú, cảm giác vô giá trị, có thể dẫn đến tự tử nếu không điều trị",
+      "symptoms": [
+        "Buồn bã liên tục suốt ngày",
+        "Mất hứng thú hoặc vui thích (anhedonia)",
+        "Cảm giác vô giá trị, tội lỗi",
+        "Khó tập trung, suy giảm trí nhớ",
+        "Thay đổi ăn/ngủ (mất ngủ hoặc ngủ quá nhiều)",
+        "Mệt mỏi liên tục",
+        "Suy giảm hoặc tăng cơn thúc ăn",
+        "Suy giảm năng lực tình dục",
+        "Suy nghĩ về chết, tự tử"
+      ],
+      "risk_factors": [
+        "Tiền sử gia đình",
+        "Chấn thương tâm lý (mất mát, ly hôn, mất việc)",
+        "Căng thẳng mạn tính",
+        "Bệnh mạn tính (tiểu đường, tim mạch, ung thư)",
+        "Sử dụng rượu/chất gây nghiện",
+        "Cô lập xã hội",
+        "Nữ giới (nguy cơ cao hơn nam 2 lần)",
+        "Người cao tuổi"
+      ],
+      "prevention": [
+        "Duy trì mối quan hệ xã hội tốt",
+        "Tập thể dục 30 phút/ngày (endorphin giúp cải thiện tâm trạng)",
+        "Ngủ đủ 7-9 giờ/đêm",
+        "Ăn cân bằng (omega-3, B vitamins)",
+        "Quản lý stress (yoga, thiền, hobby)",
+        "Xin hỗ trợ sớm khi cảm thấy không khỏe"
+      ],
+      "treatment": [
+        "Thuốc chống trầm cảm (SSRI: Sertraline, Escitalopram)",
+        "Tâm lý trị liệu (Cognitive Behavioral Therapy - CBT)",
+        "Hỗ trợ tâm lý từ gia đình, bạn bè",
+        "Tập thể dục thường xuyên",
+        "Thiền, yoga, mindfulness",
+        "Xin tư vấn bác sĩ tâm lý nếu có ý tưởng tự tử"
+      ],
+      "emergency": "Nếu có ý tưởng tự tử, gọi 120 hoặc đến bệnh viện tâm thần gần nhất"
+    },
+    {
+      "id": "anxiety",
+      "name": "Rối Loạn Lo Âu",
+      "description": "Lo âu là cảm giác sợ hãi, khó chịu, kéo dài > 6 tháng, ảnh hưởng đến hoạt động hàng ngày, không phải chỉ căng thẳng bình thường",
+      "types": [
+        "Rối loạn lo âu quá mức (GAD)",
+        "Rối loạn hoảng sợ (Panic Disorder)",
+        "Rối loạn stress sau chấn thương (PTSD)",
+        "Rối loạn ám ảnh ép buộc (OCD)",
+        "Fobia xã hội"
+      ],
+      "symptoms": [
+        "Lo lắng, sợ hãi bất lý do",
+        "Khó tập trung, suy giảm trí nhớ",
+        "Cơ thể căng cứng (đặc biệt cô vai, cổ)",
+        "Mồ hôi, tim đập nhanh",
+        "Khó thở, chóng mặt",
+        "Mụn hoặc da không ổn",
+        "Mất ngủ hoặc ngủ kém chất lượng",
+        "Đau bụng, tiêu chảy",
+        "Tránh các tình huống gây lo âu"
+      ],
+      "prevention": [
+        "Tập thể dục 30-60 phút/ngày",
+        "Thiền & hít thở sâu 10 phút/ngày",
+        "Hạn chế caffeine",
+        "Ngủ đủ 7-9 giờ/đêm",
+        "Duy trì mối quan hệ xã hội",
+        "Hobby, hoạt động yêu thích",
+        "Yoga, tai chi",
+        "Tìm hỗ trợ từ bạn bè, gia đình"
+      ],
+      "treatment": [
+        "Thuốc chống lo âu (SSRI: Paroxetine, Sertraline)",
+        "Tâm lý trị liệu (Cognitive Behavioral Therapy)",
+        "Hít thở sâu (4-7-8: hít 4s, giữ 7s, thở 8s)",
+        "Progressive muscle relaxation",
+        "Tập lại hành vi (exposure therapy)",
+        "Nhóm hỗ trợ"
+      ]
+    },
+    {
+      "id": "insomnia",
+      "name": "Mất Ngủ",
+      "description": "Mất ngủ là khó ngủ, thức dậy giữa đêm hoặc thức sớm, kéo dài ≥ 3 tuần, làm ảnh hưởng đến chất lượng sống",
+      "types": [
+        "Mất ngủ khởi phát (khó chìm vào giấc ngủ)",
+        "Mất ngủ duy trì (thức dậy giữa đêm)",
+        "Mất ngủ sớm (thức dậy quá sớm, không ngủ lại được)",
+        "Mất ngủ trộn hợp (cả 3 loại trên)"
+      ],
+      "causes": [
+        "Stress, lo âu, trầm cảm",
+        "Thói quen xấu (dùng điện thoại trước ngủ, cà phê muộn)",
+        "Môi trường (phòng sáng, ồn ào, nóng)",
+        "Bệnh lý (tiểu đường, cao huyết áp, đau)",
+        "Rối loạn ngủ (apnea, restless leg)",
+        "Tuổi (tăng với tuổi)",
+        "Hormone thay đổi (kinh nguyệt, mãn kinh)",
+        "Rượu, thuốc lá trước ngủ"
+      ],
+      "prevention": [
+        "Đi ngủ, thức dậy cùng giờ (kể cả cuối tuần)",
+        "Tránh cà phê, trà, socola sau 14h",
+        "Tránh màn hình 1 giờ trước ngủ",
+        "Phòng: mát (16-19°C), tối, yên tĩnh",
+        "Tập thể dục 30 phút/ngày (sáng hoặc chiều)",
+        "Không ăn nặng trước ngủ 3 giờ",
+        "Thả lỏng trước ngủ (đọc, nghe nhạc, thiền)",
+        "Tránh stress, dù sao cũng cần công việc"
+      ],
+      "treatment": [
+        "Thuốc ngủ (Melatonin, Valerian) - nên tránh dùng lâu dài",
+        "Cognitive Behavioral Therapy (CBT-I)",
+        "Hít thở sâu: 4-7-8 (hít 4s, giữ 7s, thở 8s)",
+        "Progressive Muscle Relaxation (30 phút)",
+        "Nghe nhạc thư giãn, thiên nhiên",
+        "Nếu mất ngủ > 1 tháng, xin tư vấn bác sĩ"
+      ]
+    },
+    {
+      "id": "obesity",
+      "name": "Béo Phì",
+      "description": "Béo phì khi chỉ số khối cơ thể (BMI) ≥ 30, là nguyên nhân gây tiểu đường, tim mạch, ung thư, khớp gối",
+      "bmi_categories": {
+        "underweight": "BMI < 18.5",
+        "normal": "BMI 18.5 - 24.9",
+        "overweight": "BMI 25 - 29.9",
+        "obese": "BMI 30 - 34.9",
+        "severely_obese": "BMI ≥ 35"
+      },
+      "how_to_calculate_bmi": "BMI = Cân nặng (kg) / [Chiều cao (m)]²",
+      "risk_factors": [
+        "Chế độ ăn cao calorico (nhiều đường, chất béo)",
+        "Ít hoạt động thể chất",
+        "Di truyền (bố mẹ béo phì)",
+        "Tuổi tác",
+        "Hormone thay đổi (suy tuyến giáp)",
+        "Một số loại thuốc (corticosteroids)",
+        "Tâm lý (ăn vì stress, buồn)"
+      ],
+      "health_complications": [
+        "Tiểu đường typ 2",
+        "Bệnh tim mạch, cao huyết áp",
+        "Cholesterol cao",
+        "Khớp gối, lưng đau",
+        "Sleep apnea (ngừng thở khi ngủ)",
+        "GERD (trào ngược dạ dày)",
+        "Ung thư (vú, ruột, gan, tuyến tụy)"
+      ],
+      "prevention_weight_loss": [
+        "Ăn calo hợp lý: Phụ nữ 1500 cal/ngày, Nam giới 1800 cal/ngày",
+        "Ăn 30% protein, 40% carbs, 30% chất béo",
+        "Tránh thực phẩm chế biến, nước ngọt, bánh kẹo",
+        "Ăn rau quả, cá, gà, đậu, whole grains",
+        "Tập thể dục 300 phút/tuần hoặc 150 phút vận động mạnh",
+        "Giảm 0.5-1 kg/tuần là an toàn",
+        "Tránh chế độ ăn kiêng kỳ quặc - thay đổi lâu dài",
+        "Quản lý stress, ngủ đủ",
+        "Xin tư vấn bác sĩ hoặc chuyên gia dinh dưỡng"
+      ]
+    }
+  ]
+}
