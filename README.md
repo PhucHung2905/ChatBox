@@ -1,10 +1,10 @@
-# 🏠 Real Estate Consulting ChatBox
+# 🏠 Health ChatBox
 
-Một chatbox thông minh để tư vấn bất động sản, tích hợp vector database, LLM và kiến thức bất động sản.
+Một chatbox thông minh để tư vấn về sức khỏe, tích hợp vector database, LLM và sức khỏe.
 
 ## 🎯 Tính năng
 
-- **Chat thông minh**: Trả lời câu hỏi về bất động sản dựa trên cơ sở dữ liệu kiến thức
+- **Chat thông minh**: Trả lời câu hỏi về sức khỏe con người dựa trên cơ sở dữ liệu kiến thức
 - **Tìm kiếm vector**: Tìm kiếm tài liệu liên quan dựa trên ngữ nghĩa
 - **Quản lý cơ sở dữ liệu**: Tạo lại và quản lý vector database
 - **Giao diện thân thiện**: UI hiện đại với hỗ trợ mobile
