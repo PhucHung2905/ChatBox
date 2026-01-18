@@ -3,7 +3,7 @@ Admin management module
 """
 from flask import Blueprint, request, jsonify
 from auth import require_admin, get_current_user, log_admin_action
-from database import db, User, ChatHistory, AuditLog
+from database import db, User, ChatHistory, AuditLog, UserInfoRequest
 from datetime import datetime, timedelta
 import json
 
@@ -427,6 +427,174 @@ def get_admin_stats():
                 'active_users_last_24h': active_last_24h
             },
             'recent_chats': [chat.to_dict() for chat in recent_chats]
+        }), 200
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+# ==================== User Info Requests ====================
+
+@admin_bp.route('/user-info-requests', methods=['GET'])
+@require_admin
+def get_user_info_requests():
+    """Get all user information requests"""
+    try:
+        current_user = get_current_user()
+        page = request.args.get('page', 1, type=int)
+        per_page = request.args.get('per_page', 50, type=int)
+        filter_by = request.args.get('filter', 'all')
+        
+        query = UserInfoRequest.query.order_by(UserInfoRequest.created_at.desc())
+        
+        # Filter by review status
+        if filter_by == 'pending':
+            query = query.filter_by(is_reviewed=False)
+        elif filter_by == 'reviewed':
+            query = query.filter_by(is_reviewed=True)
+        
+        requests_page = query.paginate(page=page, per_page=per_page, error_out=False)
+        
+        data = [req.to_dict() for req in requests_page.items]
+        
+        # Log admin action
+        log_admin_action(
+            admin_id=current_user.id,
+            action='view_user_info_requests',
+            details=json.dumps({'filter': filter_by, 'page': page})
+        )
+        
+        return jsonify({
+            'success': True,
+            'data': data,
+            'pagination': {
+                'page': page,
+                'per_page': per_page,
+                'total': requests_page.total,
+                'pages': requests_page.pages
+            }
+        }), 200
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@admin_bp.route('/user-info-requests/<info_id>', methods=['GET'])
+@require_admin
+def get_user_info_request(info_id):
+    """Get specific user information request"""
+    try:
+        current_user = get_current_user()
+        info_request = UserInfoRequest.query.get(info_id)
+        
+        if not info_request:
+            return jsonify({
+                'success': False,
+                'error': 'Request not found'
+            }), 404
+        
+        # Log admin action
+        log_admin_action(
+            admin_id=current_user.id,
+            action='view_user_info_detail',
+            details=json.dumps({'info_id': info_id})
+        )
+        
+        return jsonify({
+            'success': True,
+            'data': info_request.to_dict()
+        }), 200
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@admin_bp.route('/user-info-requests/<info_id>', methods=['PUT'])
+@require_admin
+def update_user_info_request(info_id):
+    """Update user information request (mark as reviewed)"""
+    try:
+        current_user = get_current_user()
+        info_request = UserInfoRequest.query.get(info_id)
+        
+        if not info_request:
+            return jsonify({
+                'success': False,
+                'error': 'Request not found'
+            }), 404
+        
+        data = request.json
+        
+        if 'is_reviewed' in data:
+            info_request.is_reviewed = data['is_reviewed']
+            if data['is_reviewed']:
+                info_request.reviewed_by = current_user.id
+        
+        if 'notes' in data:
+            info_request.notes = data['notes'].strip()
+        
+        db.session.commit()
+        
+        # Log admin action
+        log_admin_action(
+            admin_id=current_user.id,
+            action='update_user_info_request',
+            details=json.dumps({
+                'info_id': info_id,
+                'is_reviewed': info_request.is_reviewed,
+                'notes_added': bool(info_request.notes)
+            })
+        )
+        
+        return jsonify({
+            'success': True,
+            'message': 'Request updated successfully',
+            'data': info_request.to_dict()
+        }), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@admin_bp.route('/user-info-requests/stats', methods=['GET'])
+@require_admin
+def get_user_info_stats():
+    """Get statistics about user information requests"""
+    try:
+        current_user = get_current_user()
+        
+        total = UserInfoRequest.query.count()
+        pending = UserInfoRequest.query.filter_by(is_reviewed=False).count()
+        reviewed = UserInfoRequest.query.filter_by(is_reviewed=True).count()
+        
+        # Get requests from last 7 days
+        seven_days_ago = datetime.utcnow() - timedelta(days=7)
+        new_requests = UserInfoRequest.query.filter(
+            UserInfoRequest.created_at >= seven_days_ago
+        ).count()
+        
+        # Log admin action
+        log_admin_action(
+            admin_id=current_user.id,
+            action='view_user_info_stats'
+        )
+        
+        return jsonify({
+            'success': True,
+            'stats': {
+                'total': total,
+                'pending': pending,
+                'reviewed': reviewed,
+                'new_this_week': new_requests
+            }
         }), 200
     except Exception as e:
         return jsonify({

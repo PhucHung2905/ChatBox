@@ -9,6 +9,66 @@
 <body>
     <!-- Main App -->
     <div id="mainApp" class="main-app">
+        <!-- User Info Modal -->
+        <div id="userInfoModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🏥 Tư Vấn Đặt Khám Trực Tuyến</h2>
+                    <p class="modal-subtitle">Hotline: 19002115</p>
+                </div>
+                
+                <form id="userInfoForm" class="user-info-form">
+                    <div class="form-group">
+                        <label for="userFullName">Nhập tên của bạn<span class="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="userFullName" 
+                            name="full_name" 
+                            placeholder="Họ và tên"
+                            required
+                            class="form-input"
+                        >
+                        <span class="error-message" id="fullNameError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userPhoneNumber">Nhập số điện thoại của bạn<span class="required">*</span></label>
+                        <input 
+                            type="tel" 
+                            id="userPhoneNumber" 
+                            name="phone_number" 
+                            placeholder="0123456789"
+                            required
+                            class="form-input"
+                        >
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userMessage">Tin nhắn</label>
+                        <textarea 
+                            id="userMessage" 
+                            name="message" 
+                            placeholder="Mô tả vấn đề sức khỏe của bạn (tùy chọn)"
+                            rows="4"
+                            class="form-input"
+                        ></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn-start-chat">
+                        ▶ BẮT ĐẦU TRÒ CHUYỆN
+                    </button>
+                </form>
+                
+                <div class="modal-footer">
+                    <p style="font-size: 12px; color: #999; margin-top: 15px;">
+                        Thông tin của bạn sẽ được lưu trữ an toàn và chỉ được sử dụng để quản lý tư vấn
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
             <!-- Sidebar -->
             <aside class="sidebar">
@@ -42,6 +102,9 @@
                     <!-- Admin Menu -->
                     <div id="adminMenu" class="admin-menu hidden">
                         <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
+                        <button class="nav-btn" data-section="admin-user-info">
+                            <span>📋</span> Quản Lý Thông Tin
+                        </button>
                         <button class="nav-btn" data-section="admin-users">
                             <span>👥</span> Quản Lý User
                         </button>
