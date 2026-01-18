@@ -25,12 +25,21 @@ frontend_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__f
 
 app = Flask(__name__, static_folder=frontend_path, static_url_path='')
 
+# ✅ Configure UTF-8 encoding for Vietnamese
+app.config['JSON_AS_ASCII'] = False
+
 # Configure CORS based on environment
 if FLASK_ENV == 'production' and setup_cors_production:
     setup_cors_production(app)
     add_security_headers(app)
 else:
     CORS(app)
+
+# ✅ Add UTF-8 response header
+@app.after_request
+def set_response_headers(response):
+    response.headers['Content-Type'] = 'application/json; charset=utf-8'
+    return response
 
 # Configure database
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI

@@ -211,6 +211,39 @@
                     </div>
                 </section>
 
+                <!-- Admin User Info Section -->
+                <section id="adminUserInfoSection" class="section">
+                    <div class="admin-container">
+                        <h2>📋 Quản Lý Thông Tin Người Dùng</h2>
+                        
+                        <div class="admin-filters">
+                            <input type="text" id="userInfoSearch" placeholder="Tìm kiếm theo tên hoặc SĐT..." class="input-field">
+                            <select id="userInfoFilterReview" class="input-field">
+                                <option value="">Tất cả</option>
+                                <option value="pending">Chưa review</option>
+                                <option value="reviewed">Đã review</option>
+                            </select>
+                            <button id="userInfoFilterBtn" class="btn-secondary">🔍 Lọc</button>
+                        </div>
+                        
+                        <div id="userInfoTable" class="users-table"></div>
+                        <div id="userInfoPagination" class="pagination"></div>
+                        
+                        <!-- User Info Detail Modal -->
+                        <div id="userInfoDetailModal" class="modal hidden">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>📋 Chi tiết thông tin</h3>
+                                    <button type="button" class="modal-close" onclick="closeUserInfoDetail()">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="userInfoDetailContent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Admin Users Section -->
                 <section id="adminUsersSection" class="section">
                     <div class="admin-container">

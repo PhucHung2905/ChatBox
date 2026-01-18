@@ -327,7 +327,7 @@ function switchSection(sectionId) {
     if (sectionId === 'history') {
         loadUserChatHistory();
     } else if (sectionId === 'admin-user-info') {
-        window.location.href = 'admin-users.html';
+        window.location.href = 'admin-users.html';  // ✅ Redirect to admin-users.html
     } else if (sectionId === 'admin-users') {
         loadAdminUsers();
     } else if (sectionId === 'admin-audit') {
@@ -675,6 +675,174 @@ async function testConnection() {
 }
 
 // ==================== Admin Features ====================
+
+// ✅ Load User Info Submissions (Thông tin người dùng đã cung cấp)
+async function loadAdminUserInfo(page = 1) {
+    try {
+        const response = await fetch(`${state.backendUrl}/api/admin/user-info-requests?page=${page}&per_page=20`, {
+            headers: { 'Authorization': `Bearer ${state.token}` }
+        });
+        
+        const data = await response.json();
+        const userInfoTable = document.getElementById('userInfoTable');
+        
+        userInfoTable.innerHTML = '';
+        
+        console.log('User info response:', data);  // Debug log
+        
+        if (data.success && data.data && data.data.length > 0) {
+            const table = document.createElement('table');
+            table.className = 'admin-table';
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Mô Tả</th>
+                        <th>Ngày</th>
+                        <th>Trạng Thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${data.data.map(req => `
+                        <tr>
+                            <td>${req.full_name}</td>
+                            <td>${req.phone_number}</td>
+                            <td>${req.message ? req.message.substring(0, 50) + '...' : '-'}</td>
+                            <td>${new Date(req.created_at).toLocaleDateString('vi-VN')}</td>
+                            <td>
+                                <span class="badge ${req.is_reviewed ? 'badge-success' : 'badge-warning'}">
+                                    ${req.is_reviewed ? '✅ Đã review' : '⏳ Chưa review'}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn-small" onclick="showUserInfoDetail('${req.id}')">Chi tiết</button>
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            userInfoTable.appendChild(table);
+        } else {
+            userInfoTable.innerHTML = '<p style="text-align:center; padding:20px;">Không có dữ liệu</p>';
+        }
+        
+        // Pagination
+        if (data.pagination && data.pagination.pages > 1) {
+            const pagination = document.getElementById('userInfoPagination');
+            pagination.innerHTML = '';
+            for (let i = 1; i <= data.pagination.pages; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                btn.className = i === page ? 'btn-pagination active' : 'btn-pagination';
+                btn.onclick = () => loadAdminUserInfo(i);
+                pagination.appendChild(btn);
+            }
+        }
+    } catch (error) {
+        console.error('Load user info error:', error);
+        alert('❌ Lỗi: ' + error.message);
+    }
+}
+
+// ✅ Show User Info Detail
+async function showUserInfoDetail(infoId) {
+    try {
+        const response = await fetch(`${state.backendUrl}/api/admin/user-info-requests/${infoId}`, {
+            headers: { 'Authorization': `Bearer ${state.token}` }
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            const req = data.data;  // ✅ Change from data.request to data.data
+            const modal = document.getElementById('userInfoDetailModal');
+            const content = document.getElementById('userInfoDetailContent');
+            
+            content.innerHTML = `
+                <div class="detail-item">
+                    <label>Tên:</label>
+                    <p>${req.full_name}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Số Điện Thoại:</label>
+                    <p>${req.phone_number}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Mô Tả:</label>
+                    <p>${req.message || '(Không có)'}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Ngày Gửi:</label>
+                    <p>${new Date(req.created_at).toLocaleString('vi-VN')}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Trạng Thái:</label>
+                    <p>${req.is_reviewed ? '✅ Đã review' : '⏳ Chưa review'}</p>
+                </div>
+                ${req.notes ? `
+                <div class="detail-item">
+                    <label>Ghi Chú Admin:</label>
+                    <p>${req.notes}</p>
+                </div>
+                ` : ''}
+                <div class="detail-item">
+                    <label>Ghi Chú Mới:</label>
+                    <textarea id="adminNotes" class="input-field" placeholder="Thêm ghi chú...">${req.notes || ''}</textarea>
+                </div>
+                <div style="display:flex; gap:10px; margin-top:15px;">
+                    <button class="btn-primary" onclick="updateUserInfoReview('${req.id}')">💾 Lưu & Đánh Dấu Review</button>
+                    <button class="btn-secondary" onclick="closeUserInfoDetail()">Đóng</button>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+    } catch (error) {
+        console.error('Show detail error:', error);
+        alert('❌ Lỗi: ' + error.message);
+    }
+}
+
+// ✅ Update User Info Review Status
+async function updateUserInfoReview(infoId) {
+    try {
+        const notes = document.getElementById('adminNotes')?.value || '';
+        
+        const response = await fetch(`${state.backendUrl}/api/admin/user-info-requests/${infoId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${state.token}`
+            },
+            body: JSON.stringify({
+                is_reviewed: true,
+                notes: notes
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert('✅ Cập nhật thành công');
+            closeUserInfoDetail();
+            loadAdminUserInfo();  // Reload list
+        } else {
+            alert('❌ Lỗi: ' + data.error);
+        }
+    } catch (error) {
+        console.error('Update review error:', error);
+        alert('❌ Lỗi: ' + error.message);
+    }
+}
+
+// ✅ Close User Info Detail Modal
+function closeUserInfoDetail() {
+    const modal = document.getElementById('userInfoDetailModal');
+    modal.classList.add('hidden');
+}
+
 async function loadAdminUsers(page = 1) {
     try {
         const response = await fetch(`${state.backendUrl}/api/admin/users?page=${page}&per_page=20`, {
