@@ -35,9 +35,9 @@ DB_TRUSTED_CONNECTION = os.getenv('DB_TRUSTED_CONNECTION', 'False').lower() == '
 
 # Build SQL Server connection string
 if DB_TRUSTED_CONNECTION:
-    SQLALCHEMY_DATABASE_URI = f'mssql+pyodbc://{DB_SERVER}/{DB_NAME}?driver=ODBC+Driver+17+for+SQL+Server'
+    SQLALCHEMY_DATABASE_URI = f'mssql+pyodbc://{DB_SERVER}/{DB_NAME}?driver=ODBC+Driver+17+for+SQL+Server&charset=utf8'
 else:
-    SQLALCHEMY_DATABASE_URI = f'mssql+pyodbc://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}/{DB_NAME}?driver=ODBC+Driver+17+for+SQL+Server'
+    SQLALCHEMY_DATABASE_URI = f'mssql+pyodbc://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}/{DB_NAME}?driver=ODBC+Driver+17+for+SQL+Server&charset=utf8'
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
