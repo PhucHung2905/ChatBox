@@ -89,6 +89,38 @@ class ChatHistory(db.Model):
         return f'<ChatHistory {self.id}>'
 
 
+class UserInfoRequest(db.Model):
+    """User information request before chat - for admin review"""
+    __tablename__ = 'user_info_requests'
+    
+    id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    full_name = db.Column(db.String(255), nullable=False, index=True)
+    phone_number = db.Column(db.String(20), nullable=False, index=True)
+    message = db.Column(db.Text, nullable=True)
+    is_reviewed = db.Column(db.Boolean, default=False, index=True)
+    reviewed_by = db.Column(db.String(36), nullable=True)  # Admin ID
+    notes = db.Column(db.Text, nullable=True)  # Admin notes
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    def to_dict(self):
+        """Convert to dictionary"""
+        return {
+            'id': self.id,
+            'full_name': self.full_name,
+            'phone_number': self.phone_number,
+            'message': self.message,
+            'is_reviewed': self.is_reviewed,
+            'reviewed_by': self.reviewed_by,
+            'notes': self.notes,
+            'created_at': self.created_at.isoformat() if self.created_at else None,
+            'updated_at': self.updated_at.isoformat() if self.updated_at else None,
+        }
+    
+    def __repr__(self):
+        return f'<UserInfoRequest {self.full_name}>'
+
+
 class AuditLog(db.Model):
     """Audit log for admin activities"""
     __tablename__ = 'audit_logs'

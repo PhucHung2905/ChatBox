@@ -10,7 +10,7 @@ from vector_db import VectorDatabase
 from knowledge_base import KnowledgeBaseManager
 from llm_handler import LLMHandler
 from config import *
-from database import db, User, ChatHistory, init_db, create_admin_if_not_exists
+from database import db, User, ChatHistory, UserInfoRequest, init_db, create_admin_if_not_exists
 from auth import register_user, login_user, require_login, get_current_user
 from admin import admin_bp
 
@@ -250,6 +250,79 @@ def change_password():
         }), 200
     except Exception as e:
         db.session.rollback()
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+# ==================== User Info Request ====================
+
+@app.route('/api/user-info/submit', methods=['POST'])
+def submit_user_info():
+    """Submit user information before starting conversation"""
+    try:
+        data = request.json
+        full_name = data.get('full_name', '').strip()
+        phone_number = data.get('phone_number', '').strip()
+        message = data.get('message', '').strip()
+        
+        # Validation
+        if not full_name:
+            return jsonify({
+                'success': False,
+                'error': 'Vui lòng nhập tên của bạn'
+            }), 400
+        
+        if not phone_number:
+            return jsonify({
+                'success': False,
+                'error': 'Vui lòng nhập số điện thoại'
+            }), 400
+        
+        # Create record
+        info_request = UserInfoRequest(
+            full_name=full_name,
+            phone_number=phone_number,
+            message=message
+        )
+        
+        db.session.add(info_request)
+        db.session.commit()
+        
+        return jsonify({
+            'success': True,
+            'message': 'Thông tin đã được lưu thành công',
+            'info_id': info_request.id
+        }), 201
+    
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ User info submission error: {str(e)}")
+        traceback.print_exc()
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@app.route('/api/user-info/<info_id>', methods=['GET'])
+def get_user_info(info_id):
+    """Get user info request details"""
+    try:
+        info_request = UserInfoRequest.query.get(info_id)
+        
+        if not info_request:
+            return jsonify({
+                'success': False,
+                'error': 'Thông tin không tìm thấy'
+            }), 404
+        
+        return jsonify({
+            'success': True,
+            'data': info_request.to_dict()
+        }), 200
+    except Exception as e:
         return jsonify({
             'success': False,
             'error': str(e)

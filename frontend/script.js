@@ -19,16 +19,190 @@ const state = {
     conversationId: 'chat_' + Date.now(),
     contextCount: parseInt(localStorage.getItem('contextCount') || '5'),
     isLoading: false,
-    kbLoaded: false
+    kbLoaded: false,
+    userInfoSubmitted: localStorage.getItem('userInfoSubmitted') === 'true' || false
 };
 
 // ==================== Initialization ====================
 document.addEventListener('DOMContentLoaded', () => {
-    // Khởi tạo main app (vì index.html chỉ là trang chính)
-    showMainApp();
-    setupMainAppListeners();
+    console.log('📋 DOMContentLoaded fired');
+    console.log('userInfoSubmitted flag:', localStorage.getItem('userInfoSubmitted'));
+    console.log('state.userInfoSubmitted:', state.userInfoSubmitted);
+    console.log('is_admin:', state.currentUser?.is_admin);
+    
+    const container = document.querySelector('.container');
+    const modal = document.getElementById('userInfoModal');
+    
+    // ✅ Admin bypass modal form - đi thẳng tới chat
+    if (state.currentUser?.is_admin) {
+        console.log('✅ Admin user → Bypass modal, hiển thị chat');
+        if (container) container.classList.remove('hidden');
+        if (modal) modal.classList.add('hidden');
+        showMainApp();
+        setupMainAppListeners();
+    } 
+    // Kiểm tra xem user thường đã submit info chưa
+    else if (!state.userInfoSubmitted) {
+        console.log('✅ User chưa submit info → Hiển thị modal');
+        // Ẩn container, hiển thị modal
+        if (container) {
+            container.classList.add('hidden');
+            console.log('✅ Container ẩn');
+        }
+        if (modal) {
+            modal.classList.remove('hidden');
+            console.log('✅ Modal hiển thị');
+        }
+        showUserInfoModal();
+        setupUserInfoListeners();
+    } else {
+        console.log('✅ User đã submit info → Hiển thị chat');
+        // Hiển thị container, ẩn modal
+        if (container) {
+            container.classList.remove('hidden');
+            console.log('✅ Container hiển thị');
+        }
+        if (modal) {
+            modal.classList.add('hidden');
+            console.log('✅ Modal ẩn');
+        }
+        showMainApp();
+        setupMainAppListeners();
+    }
     verifyToken();
 });
+
+// ==================== User Info Modal ====================
+function showUserInfoModal() {
+    const modal = document.getElementById('userInfoModal');
+    modal.classList.remove('hidden');
+    // Ẩn main app container
+    const container = document.querySelector('.container');
+    if (container) container.classList.add('hidden');
+}
+
+function hideUserInfoModal() {
+    const modal = document.getElementById('userInfoModal');
+    modal.classList.add('hidden');
+    // Hiển thị container
+    const container = document.querySelector('.container');
+    if (container) container.classList.remove('hidden');
+}
+
+function setupUserInfoListeners() {
+    const form = document.getElementById('userInfoForm');
+    form.addEventListener('submit', handleUserInfoSubmit);
+    
+    // Real-time validation
+    document.getElementById('userFullName').addEventListener('blur', validateFullName);
+    document.getElementById('userPhoneNumber').addEventListener('blur', validatePhoneNumber);
+}
+
+function validateFullName() {
+    const input = document.getElementById('userFullName');
+    const error = document.getElementById('fullNameError');
+    
+    if (!input.value.trim()) {
+        error.textContent = 'Vui lòng nhập tên';
+        input.classList.add('error');
+        return false;
+    }
+    
+    if (input.value.trim().length < 3) {
+        error.textContent = 'Tên phải có ít nhất 3 ký tự';
+        input.classList.add('error');
+        return false;
+    }
+    
+    error.textContent = '';
+    input.classList.remove('error');
+    return true;
+}
+
+function validatePhoneNumber() {
+    const input = document.getElementById('userPhoneNumber');
+    const error = document.getElementById('phoneError');
+    const phoneRegex = /^[0-9]{9,11}$/;
+    
+    if (!input.value.trim()) {
+        error.textContent = 'Vui lòng nhập số điện thoại';
+        input.classList.add('error');
+        return false;
+    }
+    
+    if (!phoneRegex.test(input.value.replace(/[^\d]/g, ''))) {
+        error.textContent = 'Số điện thoại không hợp lệ (9-11 chữ số)';
+        input.classList.add('error');
+        return false;
+    }
+    
+    error.textContent = '';
+    input.classList.remove('error');
+    return true;
+}
+
+async function handleUserInfoSubmit(e) {
+    e.preventDefault();
+    
+    // Validate
+    if (!validateFullName() || !validatePhoneNumber()) {
+        return;
+    }
+    
+    const fullName = document.getElementById('userFullName').value.trim();
+    const phoneNumber = document.getElementById('userPhoneNumber').value.trim();
+    const message = document.getElementById('userMessage').value.trim();
+    
+    const btn = e.target.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '⏳ Đang gửi...';
+    
+    try {
+        const response = await fetch(`${state.backendUrl}/api/user-info/submit`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                full_name: fullName,
+                phone_number: phoneNumber,
+                message: message
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Lưu trạng thái đã submit
+            localStorage.setItem('userInfoSubmitted', 'true');
+            localStorage.setItem('userInfoId', data.info_id);
+            state.userInfoSubmitted = true;
+            
+            // Hiển thị thông báo thành công
+            btn.textContent = '✅ Thành công!';
+            
+            // Đợi 1 giây rồi ẩn modal
+            setTimeout(() => {
+                hideUserInfoModal();
+                showMainApp();
+                setupMainAppListeners();
+                
+                btn.disabled = false;
+                btn.textContent = originalText;
+            }, 1000);
+        } else {
+            alert('Lỗi: ' + (data.error || 'Không thể lưu thông tin'));
+            btn.disabled = false;
+            btn.textContent = originalText;
+        }
+    } catch (error) {
+        console.error('User info submission error:', error);
+        alert('Lỗi kết nối: ' + error.message);
+        btn.disabled = false;
+        btn.textContent = originalText;
+    }
+}
 
 // ==================== Authentication ====================
 function showMainApp() {
@@ -58,6 +232,8 @@ function logout() {
     state.currentUser = null;
     localStorage.removeItem('authToken');
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('userInfoSubmitted');  // ✅ Clear user info flag
+    localStorage.removeItem('userInfoId');         // ✅ Clear user info ID
     window.location.href = 'login.html';
 }
 
@@ -150,6 +326,8 @@ function switchSection(sectionId) {
     // Load section-specific data
     if (sectionId === 'history') {
         loadUserChatHistory();
+    } else if (sectionId === 'admin-user-info') {
+        window.location.href = 'admin-users.html';
     } else if (sectionId === 'admin-users') {
         loadAdminUsers();
     } else if (sectionId === 'admin-audit') {
