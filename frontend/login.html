@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập - RealEstate ChatBox</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <style>
         body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -260,6 +260,9 @@
     </div>
 
     <script>
+        // Get backend URL from localStorage or use default
+        const backendUrl = localStorage.getItem('backendUrl') || 'http://localhost:5000';
+
         async function handleLogin(event) {
             event.preventDefault();
             
@@ -268,7 +271,7 @@
             const messageBox = document.getElementById('message');
 
             try {
-                const response = await fetch('http://localhost:5000/api/auth/login', {
+                const response = await fetch(`${backendUrl}/api/auth/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

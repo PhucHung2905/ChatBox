@@ -6,8 +6,9 @@ import traceback
 from datetime import datetime
 import json
 
-from vector_db import VectorDatabase
-from knowledge_base import KnowledgeBaseManager
+# Lazy load heavy modules to speed up startup
+# from vector_db import VectorDatabase
+# from knowledge_base import KnowledgeBaseManager
 from llm_handler import LLMHandler
 from config import *
 from database import db, User, ChatHistory, UserInfoRequest, init_db, create_admin_if_not_exists
@@ -33,12 +34,14 @@ if FLASK_ENV == 'production' and setup_cors_production:
     setup_cors_production(app)
     add_security_headers(app)
 else:
-    CORS(app)
+    CORS(app, supports_credentials=True, origins=['http://localhost:5000', 'http://localhost:3000', 'http://127.0.0.1:5000', 'http://127.0.0.1:3000', '*'])
 
-# ✅ Add UTF-8 response header
+# ✅ Add UTF-8 response header (only for JSON API)
 @app.after_request
 def set_response_headers(response):
-    response.headers['Content-Type'] = 'application/json; charset=utf-8'
+    # Only apply JSON content-type to API endpoints
+    if response.content_type and 'json' in response.content_type:
+        response.headers['Content-Type'] = 'application/json; charset=utf-8'
     return response
 
 # Configure database
@@ -50,8 +53,8 @@ app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
 db.init_app(app)
 jwt = JWTManager(app)
 
-# Initialize components
-vector_db = VectorDatabase(EMBEDDINGS_MODEL)
+# Initialize components (lazy load vector_db)
+vector_db = None  # Will be loaded on first use
 llm = LLMHandler(model=GEMINI_MODEL)
 
 # Global conversation history (will be replaced by database)
@@ -404,8 +407,8 @@ def load_knowledge_base():
 def get_kb_info():
     """Get information about the knowledge base"""
     return jsonify({
-        'documents_count': len(vector_db.documents),
-        'has_index': vector_db.index is not None,
+        'documents_count': len(vector_db.documents) if vector_db else 0,
+        'has_index': vector_db is not None and vector_db.index is not None,
         'embeddings_model': EMBEDDINGS_MODEL,
         'llm_model': GEMINI_MODEL
     })
@@ -439,8 +442,13 @@ def chat():
             'content': user_message
         })
         
-        # Search knowledge base
-        relevant_docs = vector_db.search(user_message, k=5)
+        # Search knowledge base if available
+        relevant_docs = []
+        if vector_db:
+            try:
+                relevant_docs = vector_db.search(user_message, k=5)
+            except:
+                relevant_docs = []
         
         # Get response from LLM with context
         response = llm.generate_response(
@@ -494,6 +502,15 @@ def search():
         
         if not query:
             return jsonify({'error': 'Query cannot be empty'}), 400
+        
+        # Return empty results if vector_db not available
+        if not vector_db:
+            return jsonify({
+                'success': True,
+                'results': [],
+                'count': 0,
+                'message': 'Knowledge base not initialized'
+            })
         
         results = vector_db.search(query, k=k)
         
